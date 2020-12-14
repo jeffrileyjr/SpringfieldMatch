@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Springfield Match</title>
+  </head>
+  <body>
+    <header>
+      <h2>Springfield Match</h2>
+      <div class="menu">
+        <span class="btn" onClick="startGame()">Start Game</span>
+        <span class="timer"></span>
+        <span class="btn" onClick="resetGame()">Reset Game</span>
+      </div>
+    </header>
+    <div class="sound" onClick="toggleSound()">Sound Off</div>
+
+    <section id="cardGrid">
+      <div class="card">
+        <img class="card-image" src="./images/1.png" alt="1" />
+      </div>
+      <div class="card">
+        <img class="card-image" src="./images/2.png" alt="2" />
+      </div>
+      <div class="card">
+        <img class="card-image" src="./images/3.png" alt="3" />
+      </div>
+      <div class="card">
+        <img class="card-image" src="./images/4.png" alt="4" />
+      </div>
+      <div class="card">
+        <img class="card-image" src="./images/5.png" alt="5" />
+      </div>
+      <div class="card">
+        <img class="card-image" src="./images/6.png" alt="6" />
+      </div>
+      <div class="card">
+        <img class="card-image" src="./images/7.png" alt="7" />
+      </div>
+      <div class="card">
+        <img class="card-image" src="./images/8.png" alt="8" />
+      </div>
+      <div class="card">
+        <img class="card-image" src="./images/9.png" alt="9" />
+      </div>
+      <div class="card">
+        <img class="card-image" src="./images/10.png" alt="10" />
+      </div>
+      <div class="card">
+        <img class="card-image" src="./images/1.png" alt="1" />
+      </div>
+      <div class="card">
+        <img class="card-image" src="./images/2.png" alt="2" />
+      </div>
+      <div class="card">
+        <img class="card-image" src="./images/3.png" alt="3" />
+      </div>
+      <div class="card">
+        <img class="card-image" src="./images/4.png" alt="4" />
+      </div>
+      <div class="card">
+        <img class="card-image" src="./images/5.png" alt="5" />
+      </div>
+      <div class="card">
+        <img class="card-image" src="./images/6.png" alt="6" />
+      </div>
+      <div class="card">
+        <img class="card-image" src="./images/7.png" alt="7" />
+      </div>
+      <div class="card">
+        <img class="card-image" src="./images/8.png" alt="8" />
+      </div>
+      <div class="card">
+        <img class="card-image" src="./images/9.png" alt="9" />
+      </div>
+      <div class="card">
+        <img class="card-image" src="./images/10.png" alt="10" />
+      </div>
+    </section>
+
+    <div id="modal" class="overlay">
+      <div class="popup">
+        <h2>WooWhoo!! 🍻</h2>
+        <a href="#" id="close" class="close">X</a>
+        <div class="popupContent">
+          You won! Enjoy a Duff!
+          <div>
+            <img src="./images/duff.gif" alt="homer drunk" />
+          </div>
+        </div>
+        <div class="popupContent2">
+          <p>It took you <span id="numMoves"></span> moves</p>
+          <p>in <span id="totalTime"></span></p>
+          <div class="beerRating">
+            <p>Rating:</p>
+            <p class="beers3 hideBeers">🍺🍺🍺</p>
+            <p class="beers2 hideBeers">🍺🍺</p>
+            <p class="beers1 hideBeers">🍺</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <img class="desktopCover" src="./images/homer.gif" alt="homer" />
+
+    <script src="./index.js" type="text/javascript"></script>
+  </body>
+</html>
