@@ -103,7 +103,7 @@ function resetPicks() {
         openedCards[1].children[0].classList.remove("showCard");
         enable();
         openedCards = [];
-    }, 425);
+    }, 700);
 }
 // disables click so you can't open more than 2 cards
 function disable() {
