@@ -150,11 +150,11 @@ function gameOver() {
         closeModal();
 
         if (moves >= 10 && moves < 15) {
-            beerRating[0].classList.toggle("hideBeers");
-        } else if (moves >= 15 && moves < 20) {
             beerRating[1].classList.toggle("hideBeers");
-        } else if (moves >= 20) {
+        } else if (moves >= 15 && moves < 20) {
             beerRating[2].classList.toggle("hideBeers");
+        } else if (moves >= 20) {
+            beerRating[3].classList.toggle("hideBeers");
         }
     }
 }
@@ -185,8 +185,9 @@ function startGame() {
     if (sound) {
         audio.play();
     }
-
-    console.log(beerRating);
+    moves = 0;
+    matches = [];
+    resetTimer();
 
     for (i = 0; i < shuffledDeck.length; i++) {
         //remove all images from previous games from each card (if any)
