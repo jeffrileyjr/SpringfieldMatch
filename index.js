@@ -1,6 +1,7 @@
 let card = document.getElementsByClassName("card");
 let cards = [...card];
 let openedCards = [];
+let cardValues = [];
 let gameStarted = false;
 let matches = [];
 let moves = 0;
@@ -22,7 +23,7 @@ let modal = document.getElementById("modal");
 // rating
 let beerRating = document.querySelector(".beerRating").children;
 // coverImage
-let dtopCoverImage = document.getElementsByClassName("desktopCover");
+let dtopCoverImage = document.querySelector(".desktopCover");
 // array of images to shuffle
 let cardImages = document.getElementsByClassName("card-image");
 let cardImgArray = [...cardImages];
@@ -45,19 +46,22 @@ function shuffle(array) {
 }
 // dispaly card function
 function displayCard() {
-    cardOpen(this);
+    // console.log(this.children[0].dataset.value)
+    cardOpen(this, this.children[0].dataset.value);
     this.children[0].classList.toggle("showCard");
     this.children[0].classList.toggle("open");
     this.children[0].classList.toggle("show");
     this.classList.toggle("disabled");
 }
 // open cards than check for match if 2 cards are open
-function cardOpen(card) {
+function cardOpen(card, cardValue) {
     openedCards.push(card);
+    cardValues.push(cardValue);
+    console.log(card.dataset)
     let len = openedCards.length;
     if (len === 2) {
         moveCounter();
-        if (openedCards[0].type === openedCards[1].type) {
+        if (cardValues[0] === cardValues[1]) {
             matched();
             woowho.play();
         } else {
@@ -65,6 +69,16 @@ function cardOpen(card) {
             resetPicks();
         }
     }
+    // if (len === 2) {
+    //     moveCounter();
+    //     if (openedCards[0].type === openedCards[1].type) {
+    //         matched();
+    //         woowho.play();
+    //     } else {
+    //         doh.play();
+    //         resetPicks();
+    //     }
+    // }
 }
 // move counter
 function moveCounter() {
@@ -86,6 +100,7 @@ function matched() {
         matches.push(openedCards[1]);
         enable();
         openedCards = [];
+        cardValues = [];
         if (matches.length == 20) {
             gameOver();
         }
@@ -203,8 +218,8 @@ function startGame() {
     for (let i = 0; i < cards.length; i++) {
         cards[i].addEventListener("click", displayCard);
     }
-    // mobileCoverImage[0].classList.add('hideCover');
-    dtopCoverImage[0].classList.add("hideCover");
+
+    dtopCoverImage.classList.add("hideCover");
 
     // show the cards briefly before game starts
     setTimeout(function () {
@@ -237,7 +252,7 @@ function toggleSound() {
 }
 
 function resetGame() {
-    dtopCoverImage[0].classList.remove("hideCover");
+    dtopCoverImage.classList.remove("hideCover");
     resetTimer();
     audio.pause();
     audio.currentTime = 0;
